@@ -97,6 +97,26 @@ body {
     font-family: sans-serif;
   }
 
+  .remove{
+    display: block;
+    float: right;
+    width: 20px;
+    height: 20px;
+    font-family: sans-serif;
+    color: rgb(239, 61, 45);
+    text-decoration: none;
+    text-align: right;
+    padding: 0px 5px 8px 0px;
+    border-radius: 50%;
+    transition: background 1s;
+    cursor: pointer;
+  }
+  
+  .remove:hover {
+    background: rgb(255, 21, 0);
+    color: #fff;
+  }
+
   .checked {
     color: #999 !important;
     text-decoration: line-through;

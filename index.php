@@ -23,20 +23,20 @@ require 'db_conn.php';
             $todos = $conn->query("SELECT * FROM todos ORDER BY id DESC");
         ?>
         <div class="tasks">
-            <?php if($todos->rowCount()===0){?>
+            <?php while($todo = $todos->fetch(PDO::FETCH_ASSOC)){ ?>
                 <div class="item">
-                <input type="checkbox">
-                <h2>This is trial task</h2>
-                <br>
-                <small>created: 08/04/2022 </small>
+                    <span id="<?php echo $todo['id']; ?>" class = "remove" >x</span>
+                    <?php if($todo['checked']){ ?>
+                        <input type="checkbox" class="check-box" checked/>
+                        <h2 class="checked"><?php echo $todo['title'] ?></h2>
+                    <?php }else{ ?>
+                        <input type="checkbox" class="check-box"/>
+                        <h2><?php echo $todo['title'] ?></h2>
+                    <? } ?>
+                    <br>
+                    <small>created:  <?php $todo['date_time'] ?> </small>
                 </div>
             <?php } ?>
-            <div class="item">
-                <input type="checkbox">
-                <h2>This is trial task</h2>
-                <br>
-                <small>created: 08/04/2022 </small>
-            </div>
         </div>
     </div>
 </body>
