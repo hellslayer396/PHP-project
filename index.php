@@ -1,3 +1,6 @@
+<?php
+require 'db_conn.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +19,23 @@
                 <button type="submit">Add</button>
             </form>
         </div>
+        <?php
+            $todos = $conn->query("SELECT * FROM todos ORDER BY id DESC");
+        ?>
         <div class="tasks">
+            <?php if($todos->rowCount()===0){?>
+                <div class="item">
+                <input type="checkbox">
+                <h2>This is trial task</h2>
+                <br>
+                <small>created: 08/04/2022 </small>
+                </div>
+            <?php } ?>
             <div class="item">
                 <input type="checkbox">
                 <h2>This is trial task</h2>
+                <br>
+                <small>created: 08/04/2022 </small>
             </div>
         </div>
     </div>
